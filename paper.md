@@ -34,7 +34,7 @@ Due to the large size of digital pathology whole slide images (WSIs), substantia
 
 SCEMATK addresses this gap by providing a unified, easily extensible interface for image preprocessing, object segmentation, and morphological profiling, implemented using lazy-loading strategies. This design enables efficient analysis on standard personal computers while remaining scalable to high-performance computing environments. In contrast to existing morphological profiling tools, SCEMATK applies image transformations consistently across the entire slide prior to feature extraction, allowing computation of spatial statistics that characterise the local distribution of phenotypes within each cell’s neighbourhood.
 
-[incluce{image-tbd}]
+![Overview of `scematk`](scematk_overview.png)
 
 SCEMATK provides these basic tools for analysing images: 
 
