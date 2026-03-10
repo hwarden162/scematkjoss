@@ -15,21 +15,19 @@ authors:
   - name: Ava Khamseh
     orcid: 0000-0001-5203-2205
     corresponding: true
-    affiliation: "1, 2, 3"
+    affiliation: "1, 2"
 affiliations:
  - name: MRC Human Genetics Unit, Institute of Genetics and Cancer, University of Edinburgh, Edinburgh, UK
    index: 1
  - name: School of Informatics, University of Edinburgh, Edinburgh, UK
    index: 2
- - name: School of Mathematics, University of Edinburgh, Edinburgh, UK
-   index: 3
 date: 02 February 2025
 bibliography: paper.bib
 ---
 
 # Summary
 
-Digital pathology is an important field of study for fast an accurate diagnostic processes as well as for structural analysis of diseased tissue. These large high resolution images are then shared amongst pathologists and annotated, however recently it there has been a lot of work to apply machine learning to these images to perform common diagnostic and investigative work. Due to the large size of the images, this requires a lot of technical expertise and computational resources to open and analyse these images. SCEMATK (Single Cell Extraction and Morhorphological Analysis Tool-Kit) provides an efficient way to open and convert digital pathology images into a phenotypic data set of morphological features that can then have machine learning techniques applied to them that do not take images as input. Furthermore, SCEMATK focuses on the processing patches uniformly, allowing for the spatial analysis of the morphology of cells between patches to capture greater information about larger tissue structure. All of these processes can be run interactively in a Jupyter notebook, allowing for easy manipulation of images too large to fit into memory.
+Digital pathology is an important field of study for fast and accurate diagnostic processes as well as for structural analysis of diseased tissue. These large high resolution images are then shared amongst pathologists and annotated, however recently it there has been a lot of work to apply machine learning to these images to perform common diagnostic and investigative work. Due to the large size of the images, this requires a lot of technical expertise and computational resources to open and analyse these images. SCEMATK (Single Cell Extraction and Morphorphological Analysis Tool-Kit) provides an efficient way to open and convert digital pathology images into a phenotypic data set of morphological features that can then have machine learning techniques applied to them that do not take images as input. Furthermore, SCEMATK focuses on the processing patches uniformly, allowing for the spatial analysis of the morphology of cells between patches to capture greater information about larger tissue structure. All of these processes can be run interactively in a Jupyter notebook, allowing for easy manipulation of images too large to fit into memory.
 
 # Statement of Need
 
@@ -37,9 +35,9 @@ Due to the large size of digital pathology whole slide images (WSIs), substantia
 
 SCEMATK addresses this gap by providing a unified, easily extensible interface for whole slide image preprocessing, object segmentation, and morphological profiling, implemented using lazy-loading strategies and applicable to any staining modality including H&E, IHC and multiplex. This design enables efficient analysis on standard personal computers while remaining scalable to high-performance computing environments. In contrast to existing morphological profiling tools, SCEMATK applies image transformations consistently across the entire slide prior to feature extraction of dozens of interpretable cellular features, allowing computation of spatial statistics that characterise the local distribution of phenotypes within each cell’s neighbourhood.
 
-SCEMATK has been applied to a data set of WSI's of hepatocellular carcinoma in an in vivo model. It enabled researchers to extract morphological features and use these to train a machine learning classifier to identify cancerous cells, mutations and time from onset of cancer. The uniform processing of slides made possible the calculation of spatial statistics that greatly increased the accuracy of these predictions. The ability to use morphological profiles, rather than operating on image based machine learning, allowed for more robust interpretable machine learning techniques to be used to identify key changed in morphology driving the predictions.
+SCEMATK has been applied to a data set of WSI's of hepatocellular carcinoma in an in vivo model. It enabled researchers to extract morphological features and use these to train a machine learning classifier to identify cancerous cells, mutations and time from onset of cancer. The uniform processing of slides made possible the calculation of spatial statistics that greatly increased the accuracy of these predictions. The ability to use morphological profiles, rather than operating on image based machine learning, allowed for more robust interpretable machine learning techniques to be used to identify key changed in morphology driving the prediction
 
-![Example outputs of `scematk`. (a) The image patch can be loaded and viewed with scale bar. Normalisation can be applied with reference to a target image to reduce inter image stain variability. (c) Various segmentation strategeis can be applied to identify regions of the tissue corresponding to (i) tissue, (ii) nuclei, (iii) cytoplasms and (iv) cells. (d) The image can be deconvolved to quantify the presence of H&E and IHC stains. (e) Masks and images are passed to a morphological profiler to calculate dozens of interpretable morphological features. (f) Morphological features can be viewed overlayed on the original image.](scematk_overview.png)
+![Example outputs of `scematk`. (a) The image patch can be loaded and viewed with scale bar. Normalisation can be applied with reference to a target image to reduce inter image stain variability. (c) Various segmentation strategies can be applied to identify regions of the tissue corresponding to (i) tissue, (ii) nuclei, (iii) cytoplasms and (iv) cells. (d) The image can be deconvolved to quantify the presence of H&E and IHC stains. (e) Masks and images are passed to a morphological profiler to calculate dozens of interpretable morphological features. (f) Morphological features can be viewed overlayed on the original image.](scematk_overview.png)
 
 SCEMATK provides these basic tools for analysing images: 
 
