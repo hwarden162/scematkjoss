@@ -7,6 +7,7 @@ tags:
 authors:
   - name: Hugh Warden
     orcid: 0000-0002-4308-7316
+    corresponding: true
     affiliation: 1
   - name: Jesko Wagner
     orcid: 0000-0001-9805-7192
@@ -14,12 +15,14 @@ authors:
   - name: Ava Khamseh
     orcid: 0000-0001-5203-2205
     corresponding: true
-    affiliation: "1, 2"
+    affiliation: "1, 2, 3"
 affiliations:
  - name: MRC Human Genetics Unit, Institute of Genetics and Cancer, University of Edinburgh, Edinburgh, UK
    index: 1
- - name: School of Mathematics, University of Edinburgh, Edinburgh, UK
+ - name: School of Informatics, University of Edinburgh, Edinburgh, UK
    index: 2
+ - name: School of Mathematics, University of Edinburgh, Edinburgh, UK
+   index: 3
 date: 02 February 2025
 bibliography: paper.bib
 ---
@@ -30,11 +33,13 @@ Digital pathology is an important field of study for fast an accurate diagnostic
 
 # Statement of Need
 
-Due to the large size of digital pathology whole slide images (WSIs), substantial computational resources are required to load, process, and analyse these data. Existing open source tools typically do not focus primarily on the morphological profiling of these images. QuPath provides comprehensive tools for image viewing, annotation and cell detection [cite{QuPath}]. It can perform some morphological profiling however more complex analytical workflows require a steep learning curve. Other software focuses on preparing WSIs for machine learning using efficient tiling and patch extraction strategies [cite{TIAToolbox, HistomicsTK, SlideFlow, SlideTiler}]. Although some of these tools support morphological profiling, the independent processing of tiles can introduce inconsistencies when calculating spatial statistics.
+Due to the large size of digital pathology whole slide images (WSIs), substantial computational resources are required to load, process, and analyse these data. Existing open source tools typically do not focus primarily on the morphological profiling of these images at single cell resolution. QuPath provides comprehensive tools for image viewing, cell detection and manual annotation [cite{QuPath}]. QuPath can perform some morphological profiling however more complex analytical workflows require a steep learning curve. Other software focuses on preparing WSIs for image level machine learning using efficient tiling and patch extraction strategies [cite{TIAToolbox, HistomicsTK, SlideFlow, SlideTiler}]. Although some of these tools support morphological profiling, the independent processing of tiles, rather than treating the image as a whole, can introduce inconsistencies when calculating spatial morphlogical statistics.
 
-SCEMATK addresses this gap by providing a unified, easily extensible interface for image preprocessing, object segmentation, and morphological profiling, implemented using lazy-loading strategies. This design enables efficient analysis on standard personal computers while remaining scalable to high-performance computing environments. In contrast to existing morphological profiling tools, SCEMATK applies image transformations consistently across the entire slide prior to feature extraction, allowing computation of spatial statistics that characterise the local distribution of phenotypes within each cell’s neighbourhood.
+SCEMATK addresses this gap by providing a unified, easily extensible interface for whole slide image preprocessing, object segmentation, and morphological profiling, implemented using lazy-loading strategies and applicable to any staining modality including H&E, IHC and multiplex. This design enables efficient analysis on standard personal computers while remaining scalable to high-performance computing environments. In contrast to existing morphological profiling tools, SCEMATK applies image transformations consistently across the entire slide prior to feature extraction of dozens of interpretable cellular features, allowing computation of spatial statistics that characterise the local distribution of phenotypes within each cell’s neighbourhood.
 
-![Overview of `scematk`](scematk_overview.png)
+SCEMATK has been applied to a data set of WSI's of hepatocellular carcinoma in an in vivo model. It enabled researchers to extract morphological features and use these to train a machine learning classifier to identify cancerous cells, mutations and time from onset of cancer. The uniform processing of slides made possible the calculation of spatial statistics that greatly increased the accuracy of these predictions. The ability to use morphological profiles, rather than operating on image based machine learning, allowed for more robust interpretable machine learning techniques to be used to identify key changed in morphology driving the predictions.
+
+![Example outputs of `scematk`. (a) The image patch can be loaded and viewed with scale bar. Normalisation can be applied with reference to a target image to reduce inter image stain variability. (c) Various segmentation strategeis can be applied to identify regions of the tissue corresponding to (i) tissue, (ii) nuclei, (iii) cytoplasms and (iv) cells. (d) The image can be deconvolved to quantify the presence of H&E and IHC stains. (e) Masks and images are passed to a morphological profiler to calculate dozens of interpretable morphological features. (f) Morphological features can be viewed overlayed on the original image.](scematk_overview.png)
 
 SCEMATK provides these basic tools for analysing images: 
 
@@ -48,4 +53,4 @@ SCEMATK provides an all in one easy to use interface for carrying out single cel
 
 # Acknowledgements
 
-HW and JW are funded by an MRC Unit Award.
+HW and JW are supported by an MRC PhD studentship (grant no. MC_ST_00035). AK was supported by a Langmuir Talent Development Fellowship from the Institute of Genetics and Cancer, and a philanthropic donation from Hugh and Josseline Langmuir.
